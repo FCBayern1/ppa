@@ -23,7 +23,7 @@ spec:
         role: worker
     spec: 
       containers: 
-      - image: liju666/cpuint_eigen:latest
+      - image: joshuaissb/cpuint_eigen:latest
         name: sortworker
         env: 
         - name: REDIS_HOST

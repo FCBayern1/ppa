@@ -8,15 +8,10 @@ metadata:
     role: cpa
 spec:
   template:
-    metadata: 
-      labels: 
-        app: cpuint
-        tier: cloud
-        role: cpa
     spec:
       containers:
       - name: python-custom-autoscaler
-        image: liju666/python-cpa:latest
+        image: josshuaissb/python-cpa:latest
       nodeSelector: 
         centre: "true"
   scaleTargetRef:

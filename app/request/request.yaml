@@ -25,7 +25,7 @@ spec:
     spec:
       containers: 
         - name: edge0request
-          image: liju666/cpu_request
+          image: joshuaissb/cpu_request
           # imagePullPolicy: Always
       nodeSelector: 
         zone: "0"

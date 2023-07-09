@@ -14,7 +14,7 @@ services:
     depends_on: 
       - edgeredis
     ports:
-      - 5000:5000
+      - 5002:5000
     environment: 
       - REDIS_HOST=edgeredis
       - EIG_SERVER=workereigen
@@ -30,7 +30,9 @@ services:
 
   floweredge:
     image: mher/flower
-    command: ["flower", "--broker=redis://edgeredis:6379/0", "--port=8888"]
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - FLOWER_PORT=8888
     depends_on:
       - edgeredis
       - workersort
@@ -39,7 +41,9 @@ services:
 
   flowercloud:
     image: mher/flower
-    command: ["flower", "--broker=redis://cloudredis:6379/0", "--port=8888"]
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - FLOWER_PORT=8888
     depends_on:
       - cloudredis
       - workereigen
